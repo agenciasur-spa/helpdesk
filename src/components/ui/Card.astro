@@ -1,0 +1,17 @@
+<!-- src/components/ui/Card.astro -->
+---
+const { title, text, href = "#" , typeCard } = Astro.props;
+
+const bgClass = typeCard == 2 ? 'bg-info' : 'bg-danger';
+
+---
+
+<div class={`col-md-3 ${bgClass}`}>
+  <div class="card h-100">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">{title} {typeCard}</h5>
+      <p class="card-text flex-grow-1">{text}</p>
+      <a href={href} class="btn btn-primary mt-auto">Ir</a>
+    </div>
+  </div>
+</div>

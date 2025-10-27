@@ -1,0 +1,19 @@
+---
+import Card from '../ui/Card.astro';
+
+console.log('Tipo de cards:', typeof Astro.props.cards);
+console.log('Valor de cards:', Astro.props.cards);
+const { cards } = Astro.props;
+---
+
+<section class="container my-5">
+  <div class="row g-4">
+    {cards.map(card => (
+      <Card 
+        title={card.title} 
+        text={card.text} 
+        href={card.href} 
+      />
+    ))}
+  </div>
+</section>

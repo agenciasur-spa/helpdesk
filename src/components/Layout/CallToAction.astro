@@ -1,0 +1,26 @@
+---
+import astroLogo from '../assets/astro.svg';
+import background from '../assets/background.svg';
+
+const { text, btnUrl, btnText='Ver Todas' } = Astro.props;
+
+
+
+---
+
+<section class="w-100 my-5 bg-info p-3">
+  <div class="container">
+    
+      <div class="d-flex justify-content-center align-items-center">
+        
+          <p class="text-white me-10 pt-2">
+            {text}
+          </p>
+          <a href={btnUrl} class="btn btn-warning rounded-pill">
+            {btnText}
+          </button>
+        
+      </div>
+    
+  </div>
+</section>
