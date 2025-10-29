@@ -1,0 +1,85 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/layout/Navbar.astro";
+import Footer from "../../components/layout/Footer.astro";
+import data from "../../content/helpdesk-data.json";
+import CallContact from '../../components/ui/CallContact.astro';
+
+import Hero from "../../components/ui/Hero.astro";
+import Card from "../../components/ui/Card.astro";
+
+export async function getStaticPaths() {
+  const { categories, articles } = data;
+  return categories.map((category) => ({
+    params: { slug: category.slug },
+    props: {
+      category,
+      articles: articles.filter((a) => a.categorySlug === category.slug),
+    },
+  }));
+}
+
+const { category, articles } = Astro.props;
+
+
+
+const featuredarticles = articles.slice(0, 4);
+const otherarticles = articles.slice(4, 8);
+---
+
+<Layout>
+  <Navbar />
+  <main class="container py-5">
+    <Hero title={category.title} subtitle={category.longdescription} extra={} />
+
+    <div class="row g-4">
+      {
+        featuredarticles.map((article) => (
+        <Card title ={article.title} text = {category.description} btnUrl={`/helpdesk/articles/${category.slug}/`} key={article.slug} />
+          <div class="col-md-6 d-none" key={article.slug}>
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">{article.title}</h5>
+                <pre>{`helpdesk/articles/${article.slug}/`}</pre>
+
+                <a
+                  href={`/helpdesk/articles/${article.slug}/`}
+                  class="btn btn-primary mt-auto"
+                >
+                  Ver detalles
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+
+
+<div class="row g-4 d-flex mt-4">
+      {
+        otherarticles.map((article) => (
+          <div class="col">
+            <button type="button" class="w-100 btn btn-outline-primary">                
+                    {article.title}
+            </button>
+          </div>
+        ))
+      }
+  </div>
+
+      <CallContact title={"¿No esta la categoría que buscas? ingresa una consulta en la mesa telefónica"}  text={""} btnUrl={""} btnText={"Llamar al 84400"} btnIco={"9"}  />
+
+
+
+
+
+
+
+    <div class="mt-4">
+      <a href="/" class="btn btn-outline-secondary">← Volver al inicio</a>
+    </div>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,105 @@
+---
+const {questions} = Astro.props;
+const faqs = questions.questions ;
+
+const col1 = faqs.slice(0, 4);
+const col2 = faqs.slice(4, 8);
+---
+
+
+
+
+
+
+<section class="container my-5">
+  <div class="row align-items-center">
+    <div class="col-12 text-center">
+      <h1 class="display-1 fw-bold">{questions.title}</h1>
+    </div>
+  </div>
+
+
+
+<div class="container my-5">
+  <div class="row">
+    <!-- Columna 1 -->
+    <div class="col-md-6">
+      <div class="accordion" id="accordionCol1">
+        {col1.map((faq, i) => {
+          const id = `c1-${i}`;
+          return (
+            <div class="accordion-item">
+              <h2 class="accordion-header" id={`heading-${id}`}>
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target={`#collapse-${id}`}
+                  aria-expanded="true"
+                  aria-controls={`collapse-${id}`}
+                >
+                  {faq.question}
+                </button>
+              </h2>
+              <div
+                id={`collapse-${id}`}
+                class="accordion-collapse collapse"
+                aria-labelledby={`heading-${id}`}
+                data-bs-parent="#accordionCol1"
+              >
+                <div class="accordion-body">
+                  {faq.answer}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="col-md-6">
+      <div class="accordion" id="accordionCol2">
+        {col2.map((faq, i) => {
+          const id = `c2-${i}`;
+          return (
+            <div class="accordion-item">
+              <h2 class="accordion-header" id={`heading-${id}`}>
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target={`#collapse-${id}`}
+                  aria-expanded="true"
+                  aria-controls={`collapse-${id}`}
+                >
+                  {faq.question}
+                </button>
+              </h2>
+              <div
+                id={`collapse-${id}`}
+                class="accordion-collapse collapse"
+                aria-labelledby={`heading-${id}`}
+                data-bs-parent="#accordionCol2"
+              >
+                <div class="accordion-body">
+                  {faq.answer}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <div class="row align-items-center mt-10">
+    <div class="col-12 text-center">
+      <a class="btn btn-link btn-primary">Ver todos</a>
+    </div>
+  </div>
+
+
+</section>

@@ -1,0 +1,30 @@
+---
+import Card from '../../components/ui/Card.astro';
+const {articles} = Astro.props;
+const featuredArticles = articles.slice(0, 3);
+
+---
+
+<section class="container my-5">
+  <div class="row align-items-center">
+    <div class="col-12 text-center">
+      <h1 class="display-1 fw-bold">Artículos Destacados</h1>
+    </div>
+  </div>
+
+
+
+<div class="row g-4">
+        {featuredArticles.map(article => (
+          <Card title ={article.title} text = {article.description} btnUrl={`/helpdesk/category/${article.slug}/`} col={"col-md-4"} />
+        ))}
+  </div>
+
+
+    <div class="row align-items-center mt-10">
+    <div class="col-12 text-center">
+      <a class="btn btn-link btn-primary">Ver todos</a>
+    </div>
+  </div>
+
+</section>

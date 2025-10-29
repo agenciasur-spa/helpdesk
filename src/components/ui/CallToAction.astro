@@ -2,7 +2,7 @@
 import astroLogo from '../assets/astro.svg';
 import background from '../assets/background.svg';
 
-const { text, btnUrl, btnText='Ver Todas' } = Astro.props;
+const { text, btnUrl, btnText='Ver Todas', btnIco='' } = Astro.props;
 
 
 
@@ -17,7 +17,7 @@ const { text, btnUrl, btnText='Ver Todas' } = Astro.props;
             {text}
           </p>
           <a href={btnUrl} class="btn btn-warning rounded-pill">
-            {btnText}
+          {btnText} {btnIco}
           </button>
         
       </div>

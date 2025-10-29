@@ -1,0 +1,131 @@
+{
+    "home": {
+        "hero": {
+            "title": "Centro de Ayuda",
+            "subtitle": "Hola, ¿Cómo podemos ayudarte?",
+            "extra": "Elige la categoría que necesites para resolver dudas:"
+        },
+        "calltoaction": {
+            "text": "¿No esta la categoría que buscas? explora todas las que tenemos disponibles",
+            "btnText": "Ver Todas",
+            "btnUrl": "/helpdesk/contacto/"
+        },
+        "frequentQuestions": {
+            "title": "Preguntas Frecuentes",
+            "questions": [
+                {
+                    "question": "¿Cómo puedo solicitar soporte técnico?",
+                    "answer": "Puedes solicitar soporte técnico a través de nuestro sistema de tickets en línea o contactando directamente a nuestro equipo de soporte."
+                },
+                {
+                    "question": "¿Cuál es el tiempo estimado de respuesta?",
+                    "answer": "Nuestro tiempo estimado de respuesta es de 24 a 48 horas hábiles, dependiendo de la complejidad del problema."
+                },
+                {
+                    "question": "¿Ofrecen soporte fuera del horario laboral?",
+                    "answer": "Sí, ofrecemos soporte 24/7 para emergencias críticas. Para otros casos, nuestro horario laboral es de lunes a viernes, de 9:00 a 18:00."
+                },
+                {
+                    "question": "¿Qué información debo proporcionar al solicitar soporte?",
+                    "answer": "Es útil incluir una descripción detallada del problema, los pasos para reproducirlo, cualquier mensaje de error y capturas de pantalla si es posible."
+                },
+                {
+                    "question": "¿Puedo hacer seguimiento a mi ticket de soporte?",
+                    "answer": "Sí, recibirás un número de ticket por correo electrónico que puedes usar para revisar el estado y el progreso de tu solicitud en nuestro portal."
+                },
+                {
+                    "question": "¿El soporte técnico tiene un costo adicional?",
+                    "answer": "El soporte técnico está incluido en todos nuestros planes de servicio. Solo las solicitudes fuera del alcance del contrato o la capacitación especializada podrían tener un costo adicional."
+                },
+                {
+                    "question": "¿Qué debo hacer si mi problema es una emergencia crítica?",
+                    "answer": "Marca la solicitud como 'Emergencia Crítica' en el sistema de tickets o llama a nuestra línea de soporte de emergencia. Atenderemos estas solicitudes con máxima prioridad 24/7."
+                },
+                {
+                    "question": "¿Tienen una base de conocimientos o tutoriales disponibles?",
+                    "answer": "Sí, contamos con una extensa base de conocimientos y una biblioteca de tutoriales en video disponibles en nuestra página de ayuda para problemas comunes."
+                }
+            ]
+        },
+        "callcontact": {
+            "title": "¿No encuentras lo que necesitas?",
+            "text": "Te ayudamos a encontrar una solución a través de nuestra mesa telefónica.",
+            "btnText": "Llamar al 84400",
+            "btnUrl": "tel:84400",
+            "btnIco": "📞"
+        }
+    },
+    "categories": [
+        {
+            "slug": "mantencion-de-instalaciones",
+            "title": "Mantención de Instalaciones",
+            "description": "Intervenciones OOCC, entre otras.",
+            "longdescription": "Estas son las categorías de mantención bajo las cuales puedes consultas los principales artículos disponibles y realizar consultas:"
+        },
+        {
+            "slug": "insumos-para-oficinas-y-personales",
+            "title": "Insumos para Oficinas y Personales",
+            "description": "Timbres, máquinas de oficina, vestuario laboral, sillas, entre otros."
+        },
+        {
+            "slug": "soporte-operativo-sucursales",
+            "title": "Soporte Operativo Sucursales",
+            "description": "Normativo, central caja, proyectos, control, optimización, entre otros."
+        },
+        {
+            "slug": "soporte-sistemas",
+            "title": "Soporte Sistemas",
+            "description": "Sistema de requerimientos, BEX, BEME, QBIZ."
+        }
+    ],
+    "articles": [
+        {
+            "slug": "climatizacion",
+            "title": "Climatización",
+            "content": "Instalación y mantenimiento de sistemas de aire acondicionado y calefacción.",
+            "categorySlug": "mantencion-de-instalaciones"
+        },
+        {
+            "slug": "mantencion-reparacion-electrica",
+            "title": "Mantención y reparación eléctrica",
+            "content": "Revisión, mantenimiento y reparación de instalaciones eléctricas.",
+            "categorySlug": "mantencion-de-instalaciones"
+        },
+        {
+            "slug": "seguridad-electronica",
+            "title": "Seguridad Electrónica",
+            "content": "Sistemas de alarmas, cámaras y control de accesos.",
+            "categorySlug": "mantencion-de-instalaciones"
+        },
+        {
+            "slug": "intervenciones-oocc",
+            "title": "Intervenciones OOCC",
+            "content": "Atención rápida ante emergencias y órdenes de trabajo.",
+            "categorySlug": "mantencion-de-instalaciones"
+        },
+        {
+            "slug": "sanitarios",
+            "title": "Sanitarios",
+            "content": "Mantenimiento de baños, griferías, cañerías y sistemas de agua.",
+            "categorySlug": "mantencion-de-instalaciones"
+        },
+        {
+            "slug": "cerrajeria",
+            "title": "Cerrajería",
+            "content": "Reparación e instalación de cerraduras, puertas y accesos.",
+            "categorySlug": "mantencion-de-instalaciones"
+        },
+        {
+            "slug": "carpinteria",
+            "title": "Carpintería",
+            "content": "Trabajos en madera: puertas, muebles, reparaciones.",
+            "categorySlug": "mantencion-de-instalaciones"
+        },
+        {
+            "slug": "otros",
+            "title": "Otros",
+            "content": "Servicios adicionales no contemplados en otras categorías.",
+            "categorySlug": "mantencion-de-instalaciones"
+        }
+    ]
+}

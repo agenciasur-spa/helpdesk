@@ -1,0 +1,15 @@
+---
+const {title, text, btnUrl, btnText, btnIco } = Astro.props;
+---
+
+<section class="container my-5">
+  <div class="row align-items-center">
+    <div class="col-12 text-center">
+      <h1 class="display-1 fw-bold">{title}</h1>
+      <p class="lead">
+        {text}
+      </p>
+      <button class="btn btn-pill btn-secondary">{btnText} {btnIco}</button>
+    </div>
+  </div>
+</section>

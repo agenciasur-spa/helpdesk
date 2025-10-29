@@ -1,7 +1,8 @@
 ---
-const { title, subtitle, extra } = Astro.props;
 import astroLogo from '../assets/astro.svg';
 import background from '../assets/background.svg';
+
+const { title="titulo", subtitle = "subtitulo", extra ="" } = Astro.props;
 ---
 
 

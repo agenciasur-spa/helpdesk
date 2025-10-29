@@ -1,44 +1,32 @@
 ---
-
-import Hero from '../components/layout/Hero.astro';
-import CategoryCards from '../components/layout/CategoryCards.astro';
-import CallToAction from '../components/layout/CallToAction.astro';
-import CallContact from '../components/layout/CallContact.astro';
-import FeaturedArticles from '../components/layout/FeaturedArticles.astro';
-import FrecuentQuestions from '../components/layout/FrecuentQuestions.astro';
-
-
-
-
-
+import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
-import Layout from '../layouts/Layout.astro';
-
-
-const homeCards = [
-  { title: "Soporte Técnico", text: "Asistencia inmediata...", href: "/helpdesk/category/" },
-  { title: "Documentación", text: "Guías y tutoriales...", href: "/docs" },
-  { title: "Preguntas Frecuentes", text: "Respuestas rápidas...", href: "/faq" },
-  { title: "Contacto Directo", text: "Habla con un agente...", href: "/contacto" },
-];
-
+import Hero from '../components/ui/Hero.astro';
+import CallToAction from '../components/ui/CallToAction.astro';
+import Card from '../components/ui/Card.astro';
+import FeaturedArticles from '../components/ui/FeaturedArticles.astro';
+import FrecuentQuestions from '../components/ui/FrecuentQuestions.astro';
+import CallContact from '../components/ui/CallContact.astro';
+import data from '../content/helpdesk-data.json';
+const { categories, home, articles } = data;
 ---
 
 <Layout>
-  <main class="flex-shrink-0">
-    <Navbar />
-
-    <Hero
-      title="Centro de Ayuda"
-      subtitle="Hola, ¿Cómo podemos ayudarte?"
-      extra="Elige la categoría que necesites pararesolver dudas:"
-    />
-    <CategoryCards cards={homeCards} />
-    <CallToAction text={"¿No esta la categoría que buscas? explora todas las que tenemos disponibles "} url={"javascript:;"} />
-    <FeaturedArticles />
-    <FrecuentQuestions />
-    <CallContact />
+  <Navbar />
+  <main>
+    <div class="container py-5">
+      <Hero title={home.hero.title} subtitle ={home.hero.subtitle}  extra ={home.hero.extra}/>
+      <div class="row g-4">
+        {categories.map(category => (
+          <Card title ={category.title} text = {category.description} btnUrl={`/helpdesk/category/${category.slug}/`} />
+        ))}
+      </div>
+    </div>
+    <CallToAction  text={home.calltoaction.text} btnUrl={home.calltoaction.btnUrl} btnText={home.calltoaction.btnText}  />
+    <FeaturedArticles articles = {articles}/>
+    <FrecuentQuestions questions={home.frequentQuestions}/>
+    <CallContact title={home.callcontact.title}  text={home.callcontact.text} btnUrl={home.callcontact.btnUrl} btnText={home.callcontact.btnText} btnIco={home.callcontact.btnIco}  />
   </main>
   <Footer />
 </Layout>
