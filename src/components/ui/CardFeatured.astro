@@ -29,18 +29,28 @@ const IconSvg = getIcon();
 
 <!-- src/components/ui/Card.astro -->
 <div class={col}>
-  <div class="card h-100">
-    <div class="card-body d-flex flex-column">
-      <div class="text-center mb-2">
-        <div class="btn btn-primary btn-lg rounded-circle p-4">
-          <IconSvg width="32" height="32" stroke-width="1" class="text-white" />
-        </div>
-      </div>
-      <h5 class="card-title">{title}</h5>
-      <p class="card-text flex-grow-1">{text}</p>
-      <div class="text-center">
-        <a href={btnUrl} class="btn btn-primary rounded-pill px-5">{btnText}</a>
-      </div>
+  <div class="featured-card card border-0 rounded-4 p-3 text-center h-100">
+    <div class="card-img-top p-3">
+      <img
+        src="https://picsum.photos/200/200"
+        class="img-fluid rounded-4"
+        alt="Aire acondicionado de ventana"
+      />
+    </div>
+    <div
+      class="card-body d-flex flex-column align-items-center justify-content-center pt-3 pb-4"
+    >
+      <h4 class="card-title fw-semibold mb-3 text-primary">
+        {title}
+      </h4>
+
+      <p class="card-text text-muted mb-4">
+        {text}
+      </p>
+
+      <a href={btnUrl} class="btn btn-primary rounded-pill px-5">
+        {btnText}
+      </a>
     </div>
   </div>
 </div>

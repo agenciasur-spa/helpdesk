@@ -1,14 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/layout/Navbar.astro';
-import Footer from '../components/layout/Footer.astro';
-import Hero from '../components/ui/Hero.astro';
-import CallToAction from '../components/ui/CallToAction.astro';
-import Card from '../components/ui/Card.astro';
-import FeaturedArticles from '../components/ui/FeaturedArticles.astro';
-import FrecuentQuestions from '../components/ui/FrecuentQuestions.astro';
-import CallContact from '../components/ui/CallContact.astro';
-import data from '../content/helpdesk-data.json';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/layout/Navbar.astro";
+import Footer from "../components/layout/Footer.astro";
+import Hero from "../components/ui/Hero.astro";
+import CallToAction from "../components/ui/CallToAction.astro";
+import Card from "../components/ui/Card.astro";
+import FeaturedArticles from "../components/ui/FeaturedArticles.astro";
+import FrecuentQuestions from "../components/ui/FrecuentQuestions.astro";
+import CallContact from "../components/ui/CallContact.astro";
+import data from "../content/helpdesk-data.json";
 const { categories, home, articles } = data;
 ---
 
@@ -16,17 +16,50 @@ const { categories, home, articles } = data;
   <Navbar />
   <main>
     <div class="container py-5">
-      <Hero title={home.hero.title} subtitle ={home.hero.subtitle}  extra ={home.hero.extra}/>
-      <div class="row g-4">
-        {categories.map(category => (
-          <Card title ={category.title} text = {category.description} btnUrl={`/helpdesk/category/${category.slug}/`} />
-        ))}
+      <div class="home pt-10 pb-5">
+        <Hero
+          title={home.hero.title}
+          subtitle={home.hero.subtitle}
+          extra={home.hero.extra}
+        />
+      </div>
+
+      <div class="row g-10 featured pb-10">
+        {
+          categories.map((category) => (
+            <Card
+              title={category.title}
+              text={category.description}
+              btnUrl={`/helpdesk/category/${category.slug}/`}
+              btnIco={"Headset"}
+            />
+          ))
+        }
       </div>
     </div>
-    <CallToAction  text={home.calltoaction.text} btnUrl={home.calltoaction.btnUrl} btnText={home.calltoaction.btnText}  />
-    <FeaturedArticles articles = {articles}/>
-    <FrecuentQuestions questions={home.frequentQuestions}/>
-    <CallContact title={home.callcontact.title}  text={home.callcontact.text} btnUrl={home.callcontact.btnUrl} btnText={home.callcontact.btnText} btnIco={home.callcontact.btnIco}  />
+    <div class="pt-5">
+      <CallToAction
+        text={home.calltoaction.text}
+        btnUrl={home.calltoaction.btnUrl}
+        btnText={home.calltoaction.btnText}
+      />
+    </div>
+
+    <div class="bg-light pt-5">
+      <FeaturedArticles articles={articles} />
+    </div>
+
+    <FrecuentQuestions questions={home.frequentQuestions} />
+
+    <div class="call-contact py-10">
+      <CallContact
+        title={home.callcontact.title}
+        text={home.callcontact.text}
+        btnUrl={home.callcontact.btnUrl}
+        btnText={home.callcontact.btnText}
+        btnIco={home.callcontact.btnIco}
+      />
+    </div>
   </main>
   <Footer />
 </Layout>

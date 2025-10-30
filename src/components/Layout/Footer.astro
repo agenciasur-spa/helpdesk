@@ -1,5 +1,59 @@
-<footer class="footer mt-auto py-3 bg-light">
-  <div class="container">
-    <span class="text-muted">Place sticky footer content here.</span>
+---
+import data from "../../content/helpdesk-data.json";
+
+const { categories } = data;
+console.log(categories);
+---
+
+<footer class="footer mt-auto py-3 bg-info text-white">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <img
+          src="/public/images/logo-be-blco-footer.svg"
+          alt="BancoEstado Logo"
+          height="auto"
+          style="max-width: 150px;"
+        />
+      </div>
+
+      <div class="col-12 col-md-3">
+        <div class="header-container mb-2">
+          <h5>Categorías</h5>
+        </div>
+
+        {
+          categories.map((category) => (
+            <p class="list-group-item">
+              <a
+                class="text-white"
+                href={`/helpdesk/category/${category.slug}/`}
+              >
+                {category.title}
+              </a>
+            </p>
+          ))
+        }
+      </div>
+
+      <div class="col-12 col-md-3">
+        <div class="header-container">
+          <h5>Otros</h5>
+        </div>
+
+        <p class="list-group-item">
+          <a class="text-white" href="#"></a>Artículos Destacados
+        </p>
+      </div>
+      <p class="list-group-item">
+        <a class="text-white" href="#"></a>Mesa Telefónica
+      </p>
+    </div>
+    <p class="list-group-item">
+      <a class="text-white" href="#"></a>Preguntas Frecuentes
+    </p>
   </div>
+  <p class="list-group-item">
+    <a class="text-white" href="#"></a>Contacto
+  </p>
 </footer>

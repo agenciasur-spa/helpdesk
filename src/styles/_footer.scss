@@ -1,0 +1,19 @@
+.header-container-2 {
+  padding: 30px;
+}
+
+h5 {
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+}
+
+h5::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: calc(100% + 15px);
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff;
+}

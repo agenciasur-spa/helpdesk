@@ -1,116 +1,204 @@
+---
+import Search from "lucide-static/icons/Search.svg";
+import Headset from "lucide-static/icons/Headset.svg";
+import Cog from "lucide-static/icons/Cog.svg";
+import MessageCircleQuestionMark from "lucide-static/icons/message-circle-question-mark.svg";
+
+import Wrench from "lucide-static/icons/Wrench.svg";
+
+import data from "../../content/helpdesk-data.json";
+
+const { categories, articles } = data;
+
+const getTopArticles = (categorySlug) => {
+  return articles
+    .filter((article) => article.categorySlug === categorySlug)
+    .slice(0, 4);
+};
+
+const cat1 = categories.slice(0, 2);
+const cat2 = categories.slice(2, 4);
+const IconMap = {
+  Wrench: Wrench,
+  Headset: Headset,
+  Cog: Cog,
+};
+---
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="https://via.placeholder.com/150x50?text=BancoEstado" alt="BancoEstado Logo" height="50">
+    <a class="navbar-brand" href="/helpdesk/">
+      <img
+        src="/public/images/logo-170-bancoestado.png"
+        alt="BancoEstado Logo"
+        height="auto"
+        style="max-width: 200px;"
+      />
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Categorías</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Artículos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
-        </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMantenimiento" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Mantenedores
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdownCategorias"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Categorías
           </a>
-          <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdownMantenimiento">
-            <div class="container">
+          <ul
+            class="dropdown-menu dropdown-menu-start mega-menu"
+            aria-labelledby="navbarDropdownCategorias"
+          >
+            <div class="fluid-container">
               <div class="row">
-                <div class="col-md-6 col-lg-3 mb-3">
-                  <h6 class="dropdown-header"><i class="fas fa-tools"></i> Mantenimiento de Instalaciones</h6>
-                  <ul class="list-unstyled">
-                    <li><a class="dropdown-item" href="#">Climatización</a></li>
-                    <li><a class="dropdown-item" href="#">Mantención y reparación eléctrica</a></li>
-                    <li><a class="dropdown-item" href="#">Seguridad Electrónica</a></li>
-                    <li><a class="dropdown-item" href="#">Intervenciones OOCC</a></li>
-                    <li><a class="dropdown-item see-more" href="#">ver más</a></li>
-                  </ul>
+                <div class="col-md-6 col-lg-6 mb-3">
+                  {
+                    cat1.map((category) => {
+                      const articlesList = getTopArticles(category.slug);
+                      const Icon = IconMap[category.icon] || Wrench;
+                      return (
+                        <div class="mb-4" key={category.slug}>
+                          <h6 class="dropdown-header fw-semibold">
+                            <Icon width="16" height="16" class="me-1" />
+                            {category.title}
+                          </h6>
+                          <ul class="list-unstyled ps-3">
+                            {articlesList.map((article) => (
+                              <li key={article.slug}>
+                                <a
+                                  class="dropdown-item"
+                                  href={`/helpdesk/articles/${article.slug}/`}
+                                >
+                                  {article.title}
+                                </a>
+                              </li>
+                            ))}
+                            <li>
+                              <a
+                                class="dropdown-item text-decoration-underline"
+                                href={`/helpdesk/category/${category.slug}/`}
+                              >
+                                ver más
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      );
+                    })
+                  }
+
+                  <div>
+                    <a class="dropdown-item text-decoration-underline" href="#"
+                      >ver más</a
+                    >
+                  </div>
                 </div>
-                <div class="col-md-6 col-lg-3 mb-3">
-                  <h6 class="dropdown-header"><i class="fas fa-cog"></i> Insumos para Oficinas</h6>
-                  <ul class="list-unstyled">
-                    <li><a class="dropdown-item" href="#">Timbres</a></li>
-                    <li><a class="dropdown-item" href="#">Máquinas de Oficina</a></li>
-                    <li><a class="dropdown-item" href="#">Vestuario Laboral</a></li>
-                    <li><a class="dropdown-item" href="#">Sillas</a></li>
-                    <li><a class="dropdown-item see-more" href="#">ver más</a></li>
-                  </ul>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-3">
-                  <h6 class="dropdown-header"><i class="fas fa-laptop-code"></i> Soporte Sistemas</h6>
-                  <ul class="list-unstyled">
-                    <li><a class="dropdown-item" href="#">Sistema de requerimientos</a></li>
-                    <li><a class="dropdown-item" href="#">QBIZ</a></li>
-                  </ul>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-3">
-                  <h6 class="dropdown-header"><i class="fas fa-store"></i> Soporte Operativo Sucursales</h6>
-                  <ul class="list-unstyled">
-                    <li><a class="dropdown-item" href="#">Normativo</a></li>
-                    <li><a class="dropdown-item" href="#">Central Caja</a></li>
-                  </ul>
+
+                <div class="col-md-6 col-lg-6 mb-3">
+                  {
+                    cat2.map((category) => {
+                      const articlesList = getTopArticles(category.slug);
+                      const Icon = IconMap[category.icon] || Wrench;
+                      return (
+                        <div class="mb-4" key={category.slug}>
+                          <h6 class="dropdown-header fw-semibold">
+                            <Icon width="16" height="16" class="me-1" />
+                            {category.title}
+                          </h6>
+                          <ul class="list-unstyled ps-3">
+                            {articlesList.map((article) => (
+                              <li key={article.slug}>
+                                <a
+                                  class="dropdown-item"
+                                  href={`/helpdesk/articles/${article.slug}/`}
+                                >
+                                  {article.title}
+                                </a>
+                              </li>
+                            ))}
+                            <li>
+                              <a
+                                class="dropdown-item text-decoration-underline"
+                                href={`/helpdesk/category/${category.slug}/`}
+                              >
+                                ver más
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      );
+                    })
+                  }
                 </div>
               </div>
-              <div class="row border-top pt-3 mt-3">
-                <div class="col-md-6 text-center">
-                  <a class="dropdown-item d-flex align-items-center justify-content-center" href="#">
-                    <i class="fas fa-headset me-2"></i> Soporte mesa telefónica
-                  </a>
+
+              <div class="row px-3">
+                <div class="col-md-6 col-lg-6 mb-3">
+                  <a aria-current="page" href="#">
+                    <Headset /> Soporte mesa telefónica</a
+                  >
                 </div>
-                <div class="col-md-6 text-center">
-                  <a class="dropdown-item d-flex align-items-center justify-content-center" href="#">
-                    <i class="fas fa-comments me-2"></i> Consulta al gestor del servicio
-                  </a>
+                <div class="col-md-6 col-lg-6 mb-3">
+                  <a aria-current="page" href="#">
+                    <MessageCircleQuestionMark /> Consulta al gestor del servicio</a
+                  >
                 </div>
               </div>
             </div>
           </ul>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Artículos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Mantenedores</a>
+        </li>
       </ul>
-      <form class="d-flex">
-        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
-        <a class="nav-link" href="#">Víctor Polanco</a>
+      <form class="d-flex me-5">
+        <a class="nav-link text-white" href="#"
+          ><Search class="ms-2" size="16" /></a
+        >
       </form>
+
+      <li class="nav-item dropdown btn btn-user rounded-pill">
+        <a
+          class="nav-link dropdown-toggle active"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false">USERNAME</a
+        >
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li>
+            <a class="dropdown-item fw-semibold" href="#"
+              >Mis consultas <span class="rounded-circle text-bg-primary px-2"
+                >2</span
+              >
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item fw-semibold" href="#">Cerrar sessión</a>
+          </li>
+        </ul>
+      </li>
     </div>
   </div>
 </nav>
-
-<style>
-  /* Estilos adicionales para el megamenu */
-  .mega-menu {
-    background:red;
-    width: 900px; 
-    max-width: none; 
-    left: 50%; 
-    transform: translateX(-50%); /* Centra el dropdown */
-    padding: 20px;
-  }
-
-  /* Para que el "ver más" tenga un estilo diferente si lo deseas */
-  .mega-menu .see-more {
-    font-weight: bold;
-    color: #007bff; /* Color de enlace primario */
-  }
-
-  
-  .dropdown-header i {
-    margin-right: 5px;
-  }
-
-  /* Estilos para los botones de abajo */
-  .mega-menu .dropdown-item.d-flex {
-    background-color: #f8f9fa; /* Un color de fondo suave */
-    border: 1px solid #dee2e6;
-    border-radius: .25rem;
-    padding: .75rem 1.25rem;
-    margin-bottom: .5rem;
-  }
-</style>

@@ -1,15 +1,18 @@
 ---
-const {title, text, btnUrl, btnText, btnIco } = Astro.props;
+const { title, text, btnUrl, btnText, btnIco } = Astro.props;
+import Phone from "lucide-static/icons/Phone.svg";
 ---
 
 <section class="container my-5">
   <div class="row align-items-center">
-    <div class="col-12 text-center">
-      <h1 class="display-1 fw-bold">{title}</h1>
-      <p class="lead">
+    <div class="col-12 text-center call-contact-block p-10">
+      <h1 class="display-1 fw-semibold text-white">{title}</h1>
+      <p class="lead text-white">
         {text}
       </p>
-      <button class="btn btn-pill btn-secondary">{btnText} {btnIco}</button>
+      <button class="btn rounded-pill btn-green p-3 mt-3"
+        ><Phone class="me-2" />{btnText}</button
+      >
     </div>
   </div>
 </section>

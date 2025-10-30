@@ -1,0 +1,98 @@
+.faq-question-text {
+  font-family: $fontSecondary;
+  font-size: 14px !important;
+}
+
+/* ==========================================================
+   VARIABLES (Asegúrate de que tus variables de Bootstrap estén definidas)
+   ========================================================== */
+$color-gris-claro: #f2f4f5; // Fondo de los ítems del acordeón
+$color-naranja: #ff8c42; // Color principal para el ícono
+$color-texto: #333333; // Color oscuro para la pregunta
+
+/* ==========================================================
+   ESTILO DEL CONTENEDOR DE ITEM
+   ========================================================== */
+.accordion-item {
+  background-color: $color-gris-claro;
+  margin-bottom: 3rem; // Un poco menos de espacio que 2rem
+  border-radius: 1rem; // Bordes redondeados
+  padding: 0; // Se remueve el padding del item, se mueve al botón
+  border: none;
+  box-shadow: none; // Asegura que no haya sombras no deseadas
+}
+
+/* ==========================================================
+   ESTILO DEL BOTÓN (ENCABEZADO DE LA PREGUNTA)
+   ========================================================== */
+.accordion-button {
+  // Sobrescribe el estilo por defecto de Bootstrap
+  background-color: transparent !important; // Fondo transparente
+  color: $color-texto; // Color oscuro para la pregunta
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 1rem 1.5rem; // Padding interno para hacer clic
+
+  &:not(.collapsed) {
+    // Estilo cuando el acordeón está abierto (activo)
+    color: $color-texto;
+    background-color: transparent !important;
+    box-shadow: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); // Separador tenue si está abierto
+    border-radius: 1rem 1rem 0 0; // Mantiene el redondeo superior
+  }
+
+  &:focus {
+    // Elimina el anillo de enfoque azul de Bootstrap
+    box-shadow: none;
+  }
+}
+
+/* ==========================================================
+   ESTILO DEL CONTENEDOR DEL ICONO NARANJA
+   ========================================================== */
+.icon-container {
+  // Círculo naranja que envuelve el SVG
+  background-color: $color-naranja;
+  width: 40px;
+  height: 40px;
+  min-width: 40px; // Evita que se encoja
+  border-radius: 50%; // Totalmente circular
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+/* ==========================================================
+   ESTILO DEL ÍCONO DE FLECHA DE BOOTSTRAP (El indicador)
+   ========================================================== */
+.accordion-button::after {
+  // Este es el ícono de flecha (Chevron) de Bootstrap
+  filter: invert(30%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(10%)
+    contrast(100%); // Oscurece la flecha de Bootstrap
+  width: 1rem;
+  height: 1rem;
+  // Opcional: para que se alinee a la derecha de todo el texto
+  margin-left: auto;
+}
+
+/* ==========================================================
+   ESTILO DEL CUERPO (RESPUESTA)
+   ========================================================== */
+.accordion-body {
+  // Padding para el contenido de la respuesta
+  padding: 1rem 1.5rem;
+  background-color: transparent; // El fondo gris lo da el .accordion-item
+}
+
+.accordion-item:first-of-type,
+.accordion-item:last-of-type {
+  // Asegura que no haya bordes de separación visibles arriba o abajo del grupo.
+  border-radius: 1rem; // Mantiene el redondeo principal del ítem.
+}
+
+.accordion-button:focus {
+  // Elimina el anillo de enfoque azul al hacer clic o usar el teclado
+  box-shadow: none !important;
+}

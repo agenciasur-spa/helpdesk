@@ -1,0 +1,36 @@
+$fontPrimary: "Fraunces", serif;
+$fontSecondary: "Poppins", sans-serif;
+$colorPrimary: #f7791d;
+$colorTextSecondary: #767676;
+
+$color-naranja-base: #ff8c42; // Naranja fuerte de la barra
+$color-naranja-logo: #ff9800; // Tono ligeramente diferente para el logo/degradado
+$color-blanco: #ffffff;
+$color-negro: #000000;
+$bg-grey: #f2f4f5;
+@import "navbar";
+@import "home";
+@import "cards";
+@import "accordion";
+@import "callcontact";
+@import "footer";
+
+body {
+  font-family: $fontSecondary;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $fontPrimary;
+  font-optical-sizing: auto;
+}
+
+.btn-primary {
+  background: $colorPrimary !important;
+}
+
+.text-primary {
+  color: $colorPrimary !important;
+}

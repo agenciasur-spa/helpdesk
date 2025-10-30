@@ -1,20 +1,16 @@
 ---
-import astroLogo from '../assets/astro.svg';
-import background from '../assets/background.svg';
+import astroLogo from "../assets/astro.svg";
+import background from "../assets/background.svg";
 
-const { title="titulo", subtitle = "subtitulo", extra ="" } = Astro.props;
+const { title = "titulo", subtitle = "subtitulo", extra = "" } = Astro.props;
 ---
-
-
-
-
 
 <section class="container my-5">
   <div class="row align-items-center">
     <div class="col-12 text-center">
-      <h1 class="display-1 fw-bold">{title}</h1>
-      <p class="lead">{subtitle}</p>
-      <p class="text-secondary">
+      <h1 class="display-1 fw-bold hd-hero-title">{title}</h1>
+      <p class="lead fw-semibold hd-hero-subtitle">{subtitle}</p>
+      <p class="hd-hero-extra">
         {extra}
       </p>
     </div>

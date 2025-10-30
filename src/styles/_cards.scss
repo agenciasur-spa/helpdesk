@@ -1,0 +1,27 @@
+.featured {
+  .card {
+    background-color: #f6ebd6;
+    border-radius: 1rem !important;
+    border: none;
+    .card-title {
+      text-align: center;
+      font-family: $fontPrimary;
+      color: $colorPrimary;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .card-text {
+      text-align: center;
+      color: $colorTextSecondary;
+      font-size: 16px;
+    }
+  }
+}
+
+.featured-card {
+  .card-img-top {
+    img {
+      width: 100%;
+    }
+  }
+}

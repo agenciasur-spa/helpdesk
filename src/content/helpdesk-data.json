@@ -60,22 +60,26 @@
             "slug": "mantencion-de-instalaciones",
             "title": "Mantención de Instalaciones",
             "description": "Intervenciones OOCC, entre otras.",
-            "longdescription": "Estas son las categorías de mantención bajo las cuales puedes consultas los principales artículos disponibles y realizar consultas:"
+            "longdescription": "Estas son las categorías de mantención bajo las cuales puedes consultas los principales artículos disponibles y realizar consultas:",
+            "icon": "lightbulb"
         },
         {
             "slug": "insumos-para-oficinas-y-personales",
             "title": "Insumos para Oficinas y Personales",
-            "description": "Timbres, máquinas de oficina, vestuario laboral, sillas, entre otros."
+            "description": "Timbres, máquinas de oficina, vestuario laboral, sillas, entre otros.",
+            "icon": "headset"
         },
         {
             "slug": "soporte-operativo-sucursales",
             "title": "Soporte Operativo Sucursales",
-            "description": "Normativo, central caja, proyectos, control, optimización, entre otros."
+            "description": "Normativo, central caja, proyectos, control, optimización, entre otros.",
+            "icon": "shield"
         },
         {
             "slug": "soporte-sistemas",
             "title": "Soporte Sistemas",
-            "description": "Sistema de requerimientos, BEX, BEME, QBIZ."
+            "description": "Sistema de requerimientos, BEX, BEME, QBIZ.",
+            "icon": "headset"
         }
     ],
     "articles": [
@@ -83,7 +87,8 @@
             "slug": "climatizacion",
             "title": "Climatización",
             "content": "Instalación y mantenimiento de sistemas de aire acondicionado y calefacción.",
-            "categorySlug": "mantencion-de-instalaciones"
+            "categorySlug": "mantencion-de-instalaciones",
+            "longContent": "Estas son las categorías de mantención bajo las cuales puedes consultas los principales artículos disponibles y realizar consultas:"
         },
         {
             "slug": "mantencion-reparacion-electrica",
@@ -100,7 +105,8 @@
         {
             "slug": "intervenciones-oocc",
             "title": "Intervenciones OOCC",
-            "content": "Atención rápida ante emergencias y órdenes de trabajo.",
+            "summary": "Atención rápida ante emergencias y órdenes de trabajo.",
+            "content": "Contenido completo con detalles extensos, procedimientos, contactos, horarios, etc. Este es el contenido que solo se ve al hacer clic en 'Leer todo'.",
             "categorySlug": "mantencion-de-instalaciones"
         },
         {

@@ -1,8 +1,8 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Navbar from "../../components/layout/Navbar.astro";
-import Footer from "../../components/layout/Footer.astro";
-import data from "../../content/helpdesk-data.json";
+import Layout from "../../../layouts/Layout.astro";
+import Navbar from "../../../components/layout/Navbar.astro";
+import Footer from "../../../components/layout/Footer.astro";
+import data from "../../../content/helpdesk-data.json";
 
 export async function getStaticPaths() {
   const { categories, articles } = data;
@@ -29,27 +29,27 @@ const { article, category } = Astro.props;
             {category.title}
           </a>
         </li>
-        <li class="breadcrumb-item active">{article.title}</li>
+        <li class="breadcrumb-item">
+          <a href={`/helpdesk/articles/${article.slug}/`}>
+            {article.title}
+          </a>
+        </li>
+        <li class="breadcrumb-item active">Completo</li>
       </ol>
     </nav>
 
-    <h1>{article.title}</h1>
-    <p class="lead mt-3">{article.summary}</p>
+    <h1>{article.title} — Versión completa</h1>
 
-    <!-- Botón "Leer todo" -->
-    <a
-      href={`/helpdesk/articles/${article.slug}/full/`}
-      class="btn btn-primary mt-3"
-    >
-      Leer todo el artículo
-    </a>
+    <div class="mt-4 article-content">
+      {article.content}
+    </div>
 
     <div class="mt-4">
       <a
-        href={`/helpdesk/category/${category.slug}/`}
+        href={`/helpdesk/articles/${article.slug}/`}
         class="btn btn-outline-secondary"
       >
-        ← Volver a {category.title}
+        ← Volver al resumen
       </a>
     </div>
   </main>

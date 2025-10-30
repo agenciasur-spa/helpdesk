@@ -1,0 +1,138 @@
+.navbar {
+  background-image: linear-gradient(90deg, #ff9100 2%, #e83420 100%);
+
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: 80px; // Altura mínima para que todo se vea bien
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra sutil opcional
+}
+
+.navbar-brand {
+  padding: 0 1.5rem; // Relleno horizontal para simular el espacio en la imagen
+  height: 80px; // Altura igual a la del navbar
+  display: flex;
+  align-items: center;
+
+  img {
+    max-height: 50px;
+    width: auto;
+  }
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+  .navbar-toggler-icon {
+    // Icono de hamburguesa blanco
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+}
+
+.navbar-nav {
+  // Ajuste de margen para centrar/espaciar los enlaces del menú
+  margin-left: 2rem;
+}
+
+.nav-item {
+  // Los enlaces del menú
+  a.nav-link {
+    color: $color-blanco !important;
+    padding: 0 1rem;
+    transition: color 0.2s;
+
+    &:hover,
+    &.active {
+      // El color de hover podría ser un blanco más brillante o un naranja más claro
+      color: lighten($color-blanco, 5%) !important;
+    }
+  }
+}
+
+.navbar-collapse .d-flex {
+  align-items: center;
+}
+
+// Estilo del ícono de Búsqueda
+.navbar-collapse .d-flex .fa-search {
+  color: $color-blanco;
+  font-size: 1.8rem; // Ícono más grande
+  padding: 0 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.btn-user {
+  background-color: #ffffff;
+  .nav-link.dropdown-toggle.active {
+    color: #e83420 !important ;
+  }
+  &:hover {
+    background-color: #fff;
+    .nav-link.dropdown-toggle.active {
+      color: #e83420 !important ;
+    }
+  }
+}
+
+/* Estilos adicionales para el megamenu */
+.mega-menu {
+  background: white;
+  width: 700px;
+  max-width: none;
+  //left: 50%;
+  //transform: translateX(-50%); /* Centra el dropdown */
+  //padding: 20px;
+}
+
+/* Para que el "ver más" tenga un estilo diferente si lo deseas */
+.mega-menu .see-more {
+  font-weight: bold;
+  color: #007bff; /* Color de enlace primario */
+}
+
+.dropdown-header i {
+  margin-right: 5px;
+}
+
+/* Estilos para los botones de abajo */
+.mega-menu .dropdown-item.d-flex {
+  background-color: #f8f9fa; /* Un color de fondo suave */
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/*
+// Estilo del "Botón" de Usuario
+.navbar-collapse .d-flex a.nav-link:last-child {
+  // Este es el enlace con el nombre "Víctor Polanco"
+  background-color: $color-blanco;
+  color: $color-negro !important; // El texto debe ser negro
+  font-weight: bold;
+  border-radius: 50px; // Bordes muy redondeados
+  padding: 0.5rem 1.5rem; // Relleno interno
+  margin-left: 1rem; // Separación del ícono de búsqueda
+  height: 60px; // Altura fija para el óvalo
+  display: flex;
+  align-items: center;
+  line-height: 1; // Asegura que el texto esté centrado verticalmente
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Sombra suave
+
+  // Simula el pequeño triángulo debajo del botón (opcional, más avanzado)
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -15px; // Posicionamiento debajo
+    right: 25px; // Posición horizontal
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid $color-blanco;
+  }
+}*/
